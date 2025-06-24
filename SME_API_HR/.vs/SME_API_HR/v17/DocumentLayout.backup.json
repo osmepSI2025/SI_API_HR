@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Git_project\\SME_APIManagement\\SME_API_HR\\SME_API_HR\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{40814379-2132-4221-955A-405F3958A298}|SME_API_HR\\SME_API_HR.csproj|d:\\git_project\\sme_apimanagement\\sme_api_hr\\sme_api_hr\\sme_api_hr\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40814379-2132-4221-955A-405F3958A298}|SME_API_HR\\SME_API_HR.csproj|solutionrelative:sme_api_hr\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40814379-2132-4221-955A-405F3958A298}|SME_API_HR\\SME_API_HR.csproj|d:\\git_project\\sme_apimanagement\\sme_api_hr\\sme_api_hr\\sme_api_hr\\services\\memployeebyidservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40814379-2132-4221-955A-405F3958A298}|SME_API_HR\\SME_API_HR.csproj|solutionrelative:sme_api_hr\\services\\memployeebyidservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40814379-2132-4221-955A-405F3958A298}|SME_API_HR\\SME_API_HR.csproj|d:\\git_project\\sme_apimanagement\\sme_api_hr\\sme_api_hr\\sme_api_hr\\services\\callapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40814379-2132-4221-955A-405F3958A298}|SME_API_HR\\SME_API_HR.csproj|solutionrelative:sme_api_hr\\services\\callapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "D:\\Git_project\\SME_APIManagement\\SME_API_HR\\SME_API_HR\\SME_API_HR\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "SME_API_HR\\Controllers\\EmployeeController.cs",
+              "ToolTip": "D:\\Git_project\\SME_APIManagement\\SME_API_HR\\SME_API_HR\\SME_API_HR\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "SME_API_HR\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAjwDcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T06:13:46.927Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MEmployeeByIdService.cs",
+              "DocumentMoniker": "D:\\Git_project\\SME_APIManagement\\SME_API_HR\\SME_API_HR\\SME_API_HR\\Services\\MEmployeeByIdService.cs",
+              "RelativeDocumentMoniker": "SME_API_HR\\Services\\MEmployeeByIdService.cs",
+              "ToolTip": "D:\\Git_project\\SME_APIManagement\\SME_API_HR\\SME_API_HR\\SME_API_HR\\Services\\MEmployeeByIdService.cs",
+              "RelativeToolTip": "SME_API_HR\\Services\\MEmployeeByIdService.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAvwIUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T15:21:22.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CallAPIService.cs",
+              "DocumentMoniker": "D:\\Git_project\\SME_APIManagement\\SME_API_HR\\SME_API_HR\\SME_API_HR\\Services\\CallAPIService.cs",
+              "RelativeDocumentMoniker": "SME_API_HR\\Services\\CallAPIService.cs",
+              "ToolTip": "D:\\Git_project\\SME_APIManagement\\SME_API_HR\\SME_API_HR\\SME_API_HR\\Services\\CallAPIService.cs",
+              "RelativeToolTip": "SME_API_HR\\Services\\CallAPIService.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAvwE0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T15:20:51.507Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

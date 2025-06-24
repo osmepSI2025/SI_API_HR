@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "K1bgAXKcylRZ5xZwZZBALeMSha8wbxlImPY5QO+oHrM=",
+  "Source": "SME_API_HR",
+  "BasePath": "_content/SME_API_HR",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

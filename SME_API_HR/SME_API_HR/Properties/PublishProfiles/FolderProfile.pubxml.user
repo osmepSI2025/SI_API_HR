@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Deploy\SME\SI\SI_API_HR</_PublishTargetUrl>
+    <History>True|2025-06-19T15:31:02.0096610Z||;True|2025-06-14T19:17:19.7264664+07:00||;True|2025-06-09T15:21:30.4450000+07:00||;True|2025-05-26T15:45:50.9305248+07:00||;True|2025-05-26T14:51:50.5412781+07:00||;True|2025-05-24T16:31:28.7803294+07:00||;True|2025-05-24T16:22:40.2546732+07:00||;True|2025-05-24T16:18:32.5070266+07:00||;True|2025-05-24T15:53:00.7869790+07:00||;True|2025-05-24T15:44:28.6690384+07:00||;True|2025-05-24T15:37:09.3083550+07:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

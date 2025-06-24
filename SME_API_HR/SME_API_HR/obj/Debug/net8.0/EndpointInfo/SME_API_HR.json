@@ -1,0 +1,2415 @@
+{
+  "x-generator": "NSwag v13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v10.0.0.0))",
+  "swagger": "2.0",
+  "info": {
+    "title": "API SME HR",
+    "description": "API documentation using Swagger 2.0",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/SYS-HR/org/business-units": {
+      "get": {
+        "tags": [
+          "BusinessUnit"
+        ],
+        "operationId": "BusinessUnit_GetAll",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BusinessUnitApiResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/org/business-units{id}": {
+      "get": {
+        "tags": [
+          "BusinessUnit"
+        ],
+        "operationId": "BusinessUnit_GetById",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessUnitApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/org/{id}/employees": {
+      "get": {
+        "tags": [
+          "BusinessUnit"
+        ],
+        "operationId": "BusinessUnit_GetEmployeeByOrganization",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BusinessUnitsEmployeeApiResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/org/BusinessUnit-BatchEndOfDay": {
+      "get": {
+        "tags": [
+          "BusinessUnit"
+        ],
+        "operationId": "BusinessUnit_BatchEndOfDay",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/org/BusinessUnit-Search": {
+      "post": {
+        "tags": [
+          "BusinessUnit"
+        ],
+        "operationId": "BusinessUnit_Search",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "searchModel",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MBusinessUnitModels"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MBusinessUnit"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/org/organization": {
+      "get": {
+        "tags": [
+          "BusinessUnit"
+        ],
+        "operationId": "BusinessUnit_GetAllOrganizationTrees",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TOrganizationTree"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/org/organization-tree": {
+      "get": {
+        "tags": [
+          "BusinessUnit"
+        ],
+        "operationId": "BusinessUnit_GetOrganizationTreeHierarchy",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/org/organization-trees-BatchEndOfDay": {
+      "get": {
+        "tags": [
+          "BusinessUnit"
+        ],
+        "operationId": "BusinessUnit_OrgTreeBatchEndOfDay",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_GetAll",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "page",
+            "in": "query",
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "perPage",
+            "in": "query",
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApiListEmployeeResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/{id}": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_GetById",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiEmployeeResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/Employee-BatchEndOfDay": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_GetEmployeeByBatchEndOfDay",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/{empId}/profile": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_GetProfileById",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "empId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiEmployeeProfileResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/Employee-Search": {
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Search",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "searchModel",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MEmployeeModels"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MEmployee"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/{employeeId}/movements": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_GetMovementById",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiListEmployeeMovementResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/movements-search": {
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_SearchMovements",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "searchModel",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TEmployeeMovementModels"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TEmployeeMovement"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/Batch-employee-contracts": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Batch_Econtracts",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/employee-contracts": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_getEmployeeContract",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "employmentDate",
+            "in": "query",
+            "format": "date-time",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "page",
+            "in": "query",
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "perPage",
+            "in": "query",
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiListEmployeeContractResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/employees/employee-contracts/{employeeId}": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_getEmployeeContractByEmpid",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "type": "string",
+            "name": "employmentDate",
+            "in": "query",
+            "format": "date-time",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TEmployeeContract"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Job/job-titles": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "operationId": "Job_GetAll",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApiListJobTitleResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Job/job-titles/{code}": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "operationId": "Job_GetById",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiJobTitleResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Job/job-levels": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "operationId": "Job_GetAllJobLevels",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApiListJobLevelResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Job/job-levels/{Code}": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "operationId": "Job_GetJobLevelById",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "Code",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiJobLevelResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Job/Job-BatchEndOfDay": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "operationId": "Job_BatchEndOfDay",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Job/JobLevel-BatchEndOfDay": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "operationId": "Job_BatchEndOfDayJobLevel",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Job/JobLevel-Search": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "operationId": "Job_SearchJobLevel",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "searchModel",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MJobLevelModels"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MJobTitle"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Position": {
+      "get": {
+        "tags": [
+          "Position"
+        ],
+        "operationId": "Position_GetAll",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiListPositionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Position/{code}": {
+      "get": {
+        "tags": [
+          "Position"
+        ],
+        "operationId": "Position_GetById",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiPositionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Position/Position-BatchEndOfDay": {
+      "get": {
+        "tags": [
+          "Position"
+        ],
+        "operationId": "Position_BatchEndOfDay",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SYS-HR/Position/Position-Search": {
+      "post": {
+        "tags": [
+          "Position"
+        ],
+        "operationId": "Position_Search",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "searchModel",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MPositionModels"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MPosition"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BusinessUnitApiResponse": {
+      "type": "object",
+      "required": [
+        "results"
+      ],
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessUnitModel"
+          }
+        }
+      }
+    },
+    "BusinessUnitModel": {
+      "type": "object",
+      "required": [
+        "businessUnitLevel",
+        "effectiveDate"
+      ],
+      "properties": {
+        "businessUnitId": {
+          "type": "string"
+        },
+        "businessUnitCode": {
+          "type": "string"
+        },
+        "businessUnitLevel": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "abbreviationEn": {
+          "type": "string"
+        },
+        "abbreviationTh": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        }
+      }
+    },
+    "BusinessUnitsEmployeeApiResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessUnitsEmployeeResult"
+          }
+        }
+      }
+    },
+    "BusinessUnitsEmployeeResult": {
+      "type": "object",
+      "properties": {
+        "employeeId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "firstNameTh": {
+          "type": "string"
+        },
+        "firstNameEn": {
+          "type": "string"
+        },
+        "lastNameTh": {
+          "type": "string"
+        },
+        "lastNameEn": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "employeeType": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        }
+      }
+    },
+    "MBusinessUnit": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "businessUnitCode": {
+          "type": "string"
+        },
+        "businessUnitLevel": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "abbreviationTh": {
+          "type": "string"
+        },
+        "abbreviationEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "MBusinessUnitModels": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "businessUnitCode": {
+          "type": "string"
+        },
+        "businessUnitLevel": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "abbreviationTh": {
+          "type": "string"
+        },
+        "abbreviationEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        }
+      }
+    },
+    "TOrganizationTree": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "parentBusinessUnitId": {
+          "type": "string"
+        },
+        "businessUnitNameTh": {
+          "type": "string"
+        },
+        "businessUnitNameEn": {
+          "type": "string"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "createDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updateDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ApiListEmployeeResponse": {
+      "type": "object",
+      "required": [
+        "results"
+      ],
+      "properties": {
+        "pagination": {
+          "$ref": "#/definitions/Pagination"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmployeeResult"
+          }
+        }
+      }
+    },
+    "Pagination": {
+      "type": "object",
+      "required": [
+        "totalRecords",
+        "currentPage",
+        "pageCount"
+      ],
+      "properties": {
+        "totalRecords": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "currentPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nextPage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "prevPage": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "EmployeeResult": {
+      "type": "object",
+      "properties": {
+        "employeeId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "firstNameTh": {
+          "type": "string"
+        },
+        "firstNameEn": {
+          "type": "string"
+        },
+        "lastNameTh": {
+          "type": "string"
+        },
+        "lastNameEn": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "employeeType": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiEmployeeResponse": {
+      "type": "object",
+      "required": [
+        "results"
+      ],
+      "properties": {
+        "results": {
+          "$ref": "#/definitions/EmployeeResult"
+        }
+      }
+    },
+    "ApiEmployeeProfileResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "$ref": "#/definitions/EmployeeProfileResult"
+        }
+      }
+    },
+    "EmployeeProfileResult": {
+      "type": "object",
+      "properties": {
+        "internalPhone": {
+          "type": "string"
+        },
+        "militaryStatus": {
+          "type": "string"
+        },
+        "mailingAddrTh": {
+          "type": "string"
+        },
+        "mailingAddrEn": {
+          "type": "string"
+        },
+        "mailingSubdistrict": {
+          "type": "string"
+        },
+        "mailingDistrict": {
+          "type": "string"
+        },
+        "mailingProvince": {
+          "type": "string"
+        },
+        "mailingCountry": {
+          "type": "string"
+        },
+        "mailingPostCode": {
+          "type": "string"
+        },
+        "mailingPhoneNo": {
+          "type": "string"
+        },
+        "regisAddrTh": {
+          "type": "string"
+        },
+        "regisAddrEn": {
+          "type": "string"
+        },
+        "regisSubdistrict": {
+          "type": "string"
+        },
+        "regisDistrict": {
+          "type": "string"
+        },
+        "regisProvince": {
+          "type": "string"
+        },
+        "regisCountry": {
+          "type": "string"
+        },
+        "regisPostCode": {
+          "type": "string"
+        },
+        "regisPhoneNo": {
+          "type": "string"
+        },
+        "bloodGroup": {
+          "type": "string"
+        },
+        "religion": {
+          "type": "string"
+        },
+        "race": {
+          "type": "string"
+        },
+        "nationality": {
+          "type": "string"
+        },
+        "jobDetails": {
+          "type": "string"
+        },
+        "nickName": {
+          "type": "string"
+        }
+      }
+    },
+    "MEmployee": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "employeeId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "firstNameTh": {
+          "type": "string"
+        },
+        "firstNameEn": {
+          "type": "string"
+        },
+        "lastNameTh": {
+          "type": "string"
+        },
+        "lastNameEn": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "employeeType": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        },
+        "createdate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "MEmployeeModels": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "employeeId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "firstNameTh": {
+          "type": "string"
+        },
+        "firstNameEn": {
+          "type": "string"
+        },
+        "lastNameTh": {
+          "type": "string"
+        },
+        "lastNameEn": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "employeeType": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiListEmployeeMovementResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmployeeMovementResult"
+          }
+        }
+      }
+    },
+    "EmployeeMovementResult": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "employeeId": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "movementTypeId": {
+          "type": "string"
+        },
+        "movementReasonId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "employment": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "employeeTypeId": {
+          "type": "string"
+        },
+        "payrollGroupId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        },
+        "workLocationId": {
+          "type": "string"
+        },
+        "calendarGroupId": {
+          "type": "string"
+        },
+        "jobTitleId": {
+          "type": "string"
+        },
+        "jobLevelId": {
+          "type": "string"
+        },
+        "jobGradeId": {
+          "type": "string"
+        },
+        "contractStartDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contractEndDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "renewContractCount": {
+          "type": "string"
+        },
+        "probationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "probationDuration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "probationResult": {
+          "type": "string"
+        },
+        "probationExtend": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "joinDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "occupationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationReason": {
+          "type": "string"
+        },
+        "terminationSSO": {
+          "type": "string"
+        },
+        "isBlacklist": {
+          "type": "boolean"
+        },
+        "paymentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "serviceYearAdjust": {
+          "type": "string"
+        },
+        "supervisorCode": {
+          "type": "string"
+        },
+        "standardWorkHoursID": {
+          "type": "string"
+        },
+        "workOperation": {
+          "type": "string"
+        }
+      }
+    },
+    "TEmployeeMovement": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "employeeId": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "movementTypeId": {
+          "type": "string"
+        },
+        "movementReasonId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "employment": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "employeeTypeId": {
+          "type": "string"
+        },
+        "payrollGroupId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        },
+        "workLocationId": {
+          "type": "string"
+        },
+        "calendarGroupId": {
+          "type": "string"
+        },
+        "jobTitleId": {
+          "type": "string"
+        },
+        "jobLevelId": {
+          "type": "string"
+        },
+        "jobGradeId": {
+          "type": "string"
+        },
+        "contractStartDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contractEndDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "renewContractCount": {
+          "type": "string"
+        },
+        "probationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "probationDuration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "probationResult": {
+          "type": "string"
+        },
+        "probationExtend": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "joinDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "occupationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationReason": {
+          "type": "string"
+        },
+        "terminationSso": {
+          "type": "string"
+        },
+        "isBlacklist": {
+          "type": "boolean"
+        },
+        "paymentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "serviceYearAdjust": {
+          "type": "string"
+        },
+        "supervisorCode": {
+          "type": "string"
+        },
+        "standardWorkHoursId": {
+          "type": "string"
+        },
+        "workOperation": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "TEmployeeMovementModels": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "employeeId": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "movementTypeId": {
+          "type": "string"
+        },
+        "movementReasonId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "employment": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "employeeTypeId": {
+          "type": "string"
+        },
+        "payrollGroupId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        },
+        "workLocationId": {
+          "type": "string"
+        },
+        "calendarGroupId": {
+          "type": "string"
+        },
+        "jobTitleId": {
+          "type": "string"
+        },
+        "jobLevelId": {
+          "type": "string"
+        },
+        "jobGradeId": {
+          "type": "string"
+        },
+        "contractStartDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contractEndDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "renewContractCount": {
+          "type": "string"
+        },
+        "probationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "probationDuration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "probationResult": {
+          "type": "string"
+        },
+        "probationExtend": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "joinDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "occupationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationReason": {
+          "type": "string"
+        },
+        "terminationSso": {
+          "type": "string"
+        },
+        "isBlacklist": {
+          "type": "boolean"
+        },
+        "paymentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "serviceYearAdjust": {
+          "type": "string"
+        },
+        "supervisorCode": {
+          "type": "string"
+        },
+        "standardWorkHoursId": {
+          "type": "string"
+        },
+        "workOperation": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ApiListEmployeeContractResponse": {
+      "type": "object",
+      "required": [
+        "results"
+      ],
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmployeeContractResult"
+          }
+        }
+      }
+    },
+    "EmployeeContractResult": {
+      "type": "object",
+      "properties": {
+        "contractFlag": {
+          "type": "boolean"
+        },
+        "employeeId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "firstNameTh": {
+          "type": "string"
+        },
+        "firstNameEn": {
+          "type": "string"
+        },
+        "lastNameTh": {
+          "type": "string"
+        },
+        "lastNameEn": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "employeeType": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        },
+        "salary": {
+          "type": "string"
+        },
+        "idCard": {
+          "type": "string"
+        },
+        "passportNo": {
+          "type": "string"
+        }
+      }
+    },
+    "TEmployeeContract": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "contractFlag": {
+          "type": "boolean"
+        },
+        "employeeId": {
+          "type": "string"
+        },
+        "employeeCode": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "firstNameTh": {
+          "type": "string"
+        },
+        "firstNameEn": {
+          "type": "string"
+        },
+        "lastNameTh": {
+          "type": "string"
+        },
+        "lastNameEn": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "employmentDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "employeeType": {
+          "type": "string"
+        },
+        "employeeStatus": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "businessUnitId": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "string"
+        },
+        "salary": {
+          "type": "string"
+        },
+        "idCard": {
+          "type": "string"
+        },
+        "passportNo": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiListJobTitleResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobTitleResult"
+          }
+        }
+      }
+    },
+    "JobTitleResult": {
+      "type": "object",
+      "properties": {
+        "seq": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "projectCode": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "typeCode": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        },
+        "grouping": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiJobTitleResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "$ref": "#/definitions/JobTitleResult"
+        }
+      }
+    },
+    "ApiListJobLevelResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobLevelResult"
+          }
+        }
+      }
+    },
+    "JobLevelResult": {
+      "type": "object",
+      "properties": {
+        "seq": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "projectCode": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "typeCode": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        },
+        "grouping": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiJobLevelResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "$ref": "#/definitions/JobLevelResult"
+        }
+      }
+    },
+    "MJobTitle": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "seq": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "projectCode": {
+          "type": "string"
+        },
+        "typeCode": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        },
+        "grouping": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "MJobLevelModels": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "seq": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "projectCode": {
+          "type": "string"
+        },
+        "typeCode": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        },
+        "grouping": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiListPositionResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PositionResult"
+          }
+        }
+      }
+    },
+    "PositionResult": {
+      "type": "object",
+      "properties": {
+        "seq": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "projectCode": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "typeCode": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        },
+        "grouping": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiPositionResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "$ref": "#/definitions/PositionResult"
+        }
+      }
+    },
+    "MPosition": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "seq": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "projectCode": {
+          "type": "string"
+        },
+        "typeCode": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        },
+        "grouping": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "MPositionModels": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "seq": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "projectCode": {
+          "type": "string"
+        },
+        "typeCode": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        },
+        "grouping": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "nameTh": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "descriptionTh": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
