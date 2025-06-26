@@ -57,6 +57,8 @@ namespace SME_API_HR
             builder.Services.AddScoped<ICallAPIService, CallAPIService>();
             builder.Services.AddHttpClient<CallAPIService>();
             builder.Services.AddSingleton<CallAPIService>();
+
+            builder.Services.AddHostedService<JobSchedulerService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
