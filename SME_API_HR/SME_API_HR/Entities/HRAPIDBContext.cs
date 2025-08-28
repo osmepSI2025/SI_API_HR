@@ -41,17 +41,17 @@ public partial class HRAPIDBContext : DbContext
 
 //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("Server=27.254.173.62;Database=bluecarg_SMEHR;User Id=SMEHR;Password=jEm949s@3;TrustServerCertificate=True;");
+//        => optionsBuilder.UseSqlServer("Server=192.168.9.236;Database=SI_HR;User Id=sa;Password=SS0@Osmep@2025;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("SMEHR");
+        modelBuilder.UseCollation("Thai_CI_AS");
 
         modelBuilder.Entity<MApiInformation>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_MApiInformation");
 
-            entity.ToTable("M_ApiInformation");
+            entity.ToTable("M_ApiInformation", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ApiKey).HasMaxLength(150);
@@ -72,7 +72,7 @@ public partial class HRAPIDBContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__m_busine__3213E83F215A8FAF");
 
-            entity.ToTable("m_business_units");
+            entity.ToTable("m_business_units", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.AbbreviationEn).HasMaxLength(100);
@@ -93,7 +93,7 @@ public partial class HRAPIDBContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__Employee__3213E83FE0901328");
 
-            entity.ToTable("M_Employees");
+            entity.ToTable("M_Employees", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BusinessUnitId).HasMaxLength(50);
@@ -121,7 +121,7 @@ public partial class HRAPIDBContext : DbContext
 
         modelBuilder.Entity<MEmployeeById>(entity =>
         {
-            entity.ToTable("M_EmployeeByID");
+            entity.ToTable("M_EmployeeByID", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BusinessUnitId).HasMaxLength(50);
@@ -151,7 +151,7 @@ public partial class HRAPIDBContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__m_job_le__3213E83F9B76C295");
 
-            entity.ToTable("m_job_level");
+            entity.ToTable("m_job_level", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Category).HasMaxLength(100);
@@ -171,7 +171,7 @@ public partial class HRAPIDBContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__m_job_ti__3213E83FC8E2E107");
 
-            entity.ToTable("m_job_titles");
+            entity.ToTable("m_job_titles", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Category).HasMaxLength(100);
@@ -191,7 +191,7 @@ public partial class HRAPIDBContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__m_positi__3213E83F653991F5");
 
-            entity.ToTable("m_positions");
+            entity.ToTable("m_positions", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Category).HasMaxLength(100);
@@ -209,7 +209,7 @@ public partial class HRAPIDBContext : DbContext
 
         modelBuilder.Entity<MScheduledJob>(entity =>
         {
-            entity.ToTable("M_ScheduledJobs");
+            entity.ToTable("M_ScheduledJobs", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.JobName).HasMaxLength(150);
@@ -217,7 +217,7 @@ public partial class HRAPIDBContext : DbContext
 
         modelBuilder.Entity<TEmployeeContract>(entity =>
         {
-            entity.ToTable("T_Employee_Contract");
+            entity.ToTable("T_Employee_Contract", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BusinessUnitId).HasMaxLength(50);
@@ -245,11 +245,11 @@ public partial class HRAPIDBContext : DbContext
 
         modelBuilder.Entity<TEmployeeMovement>(entity =>
         {
-            entity.ToTable("T_Employee_Movements");
+            entity.HasKey(e => e.TempId);
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.ToTable("T_Employee_Movements", "SMEHR");
+
+            entity.Property(e => e.TempId).HasColumnName("TEmpId");
             entity.Property(e => e.BusinessUnitId)
                 .HasMaxLength(50)
                 .HasColumnName("businessUnitId");
@@ -287,6 +287,9 @@ public partial class HRAPIDBContext : DbContext
             entity.Property(e => e.EmploymentDate)
                 .HasColumnType("datetime")
                 .HasColumnName("employmentDate");
+            entity.Property(e => e.Id)
+                .HasMaxLength(50)
+                .HasColumnName("id");
             entity.Property(e => e.IsBlacklist).HasColumnName("isBlacklist");
             entity.Property(e => e.JobGradeId)
                 .HasMaxLength(50)
@@ -322,9 +325,7 @@ public partial class HRAPIDBContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("probationDate");
             entity.Property(e => e.ProbationDuration).HasColumnName("probationDuration");
-            entity.Property(e => e.ProbationExtend)
-                .HasMaxLength(50)
-                .HasColumnName("probationExtend");
+            entity.Property(e => e.ProbationExtend).HasColumnName("probationExtend");
             entity.Property(e => e.ProbationResult)
                 .HasMaxLength(50)
                 .HasColumnName("probationResult");
@@ -364,7 +365,7 @@ public partial class HRAPIDBContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__T_Employ__3213E83F8DBBAE50");
 
-            entity.ToTable("T_Employee_Profile");
+            entity.ToTable("T_Employee_Profile", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BloodGroup).HasMaxLength(10);
@@ -394,7 +395,7 @@ public partial class HRAPIDBContext : DbContext
 
         modelBuilder.Entity<TOrganizationTree>(entity =>
         {
-            entity.ToTable("T_Organization_Tree");
+            entity.ToTable("T_Organization_Tree", "SMEHR");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BusinessUnitId).HasMaxLength(50);

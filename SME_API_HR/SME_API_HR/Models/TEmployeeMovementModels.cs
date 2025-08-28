@@ -4,7 +4,7 @@ namespace SME_API_HR.Models
 {
     public class TEmployeeMovementModels
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string? EmployeeId { get; set; }
 
@@ -52,7 +52,7 @@ namespace SME_API_HR.Models
 
         public string? ProbationResult { get; set; }
 
-        public string? ProbationExtend { get; set; }
+        public bool? ProbationExtend { get; set; }
 
         public DateTime? EmploymentDate { get; set; }
 

@@ -142,7 +142,11 @@ namespace SME_API_HR.Services
                 var response = await httpClient.SendAsync(request);
                 response.EnsureSuccessStatusCode();
                 var content = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<ApiListEmployeeResponse>(content);
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+                return JsonSerializer.Deserialize<ApiListEmployeeResponse>(content,options);
             }
             catch (Exception ex)
             {
@@ -587,8 +591,8 @@ namespace SME_API_HR.Services
                 }
 
 
-                requestJson = url.Replace("{employmentDate}", Msearch.employmentDate.Value.Date.ToString("yyyy-MM-dd")).Replace("{page}", Msearch.page.ToString()).Replace("{perPage}", Msearch.perPage.ToString());
-             //   requestJson ="https://osmepuat.onebookhr.com/api/sme/v1/employee-contracts?employmentDate=03/10/2022 00:00:00&page=1&perPage=100";
+                requestJson = url.Replace("{DateFrom}", Msearch.employmentDate.Value.Date.ToString("yyyy-MM-dd")).Replace("{DateTo}", Msearch.employmentDate.Value.Date.ToString("yyyy-MM-dd"));
+
                 var request = new HttpRequestMessage(HttpMethod.Get, requestJson);
 
                 if (apiModels.AuthorizationType == "Basic")

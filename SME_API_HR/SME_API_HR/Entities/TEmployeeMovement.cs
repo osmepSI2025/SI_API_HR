@@ -5,7 +5,9 @@ namespace SME_API_HR.Entities;
 
 public partial class TEmployeeMovement
 {
-    public int Id { get; set; }
+    public int TempId { get; set; }
+
+    public string Id { get; set; } = null!;
 
     public string? EmployeeId { get; set; }
 
@@ -53,7 +55,7 @@ public partial class TEmployeeMovement
 
     public string? ProbationResult { get; set; }
 
-    public string? ProbationExtend { get; set; }
+    public bool? ProbationExtend { get; set; }
 
     public DateTime? EmploymentDate { get; set; }
 

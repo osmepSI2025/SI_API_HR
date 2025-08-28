@@ -98,7 +98,7 @@ namespace SME_API_HR.Repository
             return await query.ToListAsync();
         }
  
-        public async Task<TEmployeeMovement> GetTEmployeeMovementsById(int id)
+        public async Task<TEmployeeMovement> GetTEmployeeMovementsById(string id)
         {
             try
             {

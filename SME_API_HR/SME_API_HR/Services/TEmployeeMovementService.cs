@@ -85,7 +85,15 @@ namespace SME_API_HR.Services
 
         public async Task AddMovement(TEmployeeMovement movement)
         {
-            await _movementRepository.AddAsync(movement);
+            try {
+                await _movementRepository.AddAsync(movement);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as needed
+                throw new Exception("Error adding movement", ex);
+            }
+          
         }
 
         public async Task UpdateMovement(TEmployeeMovement movement)
@@ -102,7 +110,7 @@ namespace SME_API_HR.Services
             return await _movementRepository.SearchAsync(searchModel);
         }
 
-        public async Task<TEmployeeMovement> GetTEmployeeMovementsById(int id)
+        public async Task<TEmployeeMovement> GetTEmployeeMovementsById(string id)
         {
             return await _movementRepository.GetTEmployeeMovementsById(id);
         }

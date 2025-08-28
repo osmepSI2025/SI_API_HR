@@ -130,17 +130,17 @@ namespace SME_API_HR.Services
 
                         }
 
-                        var newpagemodels = new searchEmployeeContractModels
-                        {
-                            employmentDate = models.employmentDate,
-                            page = models.page + 1,
-                            perPage = models.perPage,
+                        //var newpagemodels = new searchEmployeeContractModels
+                        //{
+                        //    employmentDate = models.employmentDate,
+                        //    page = models.page + 1,
+                        //    perPage = models.perPage,
 
-                        };
-                        if (apiResponse.Results.Count != 0)
-                        {
-                            await BatchEndOfDay(newpagemodels);
-                        }
+                        //};
+                        //if (apiResponse.Results.Count != 0)
+                        //{
+                        //    await BatchEndOfDay(newpagemodels);
+                        //}
 
                     }
 

@@ -67,7 +67,7 @@ namespace SME_API_HR.Controllers
             var Models = new searchEmployeeModels
             {
                 page = 1,
-                perPage = 100
+                perPage = 1000
             };
             try
             {
@@ -131,12 +131,12 @@ namespace SME_API_HR.Controllers
         public async Task<ActionResult> Batch_Econtracts()
         {
             //test datetime
-            string dateString = "2022-10-03";
+            string dateString = "2025-08-01";
             var msearch = new searchEmployeeContractModels
             {
               //  employmentDate = employmentDate.ToDateTime(TimeOnly.MinValue), // Convert DateOnly to DateTime
-              //employmentDate = DateTime.Parse(dateString),
-                employmentDate = DateTime.Now.Date,
+              employmentDate = DateTime.Parse(dateString),
+               // employmentDate = DateTime.Now.Date,
                 page = 1,
                 perPage = 100
             };

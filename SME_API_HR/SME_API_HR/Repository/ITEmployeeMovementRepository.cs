@@ -14,7 +14,7 @@ namespace SME_API_HR.Repository
         Task DeleteAsync(string employeeId);
         Task<IEnumerable<TEmployeeMovement>> SearchAsync(TEmployeeMovementModels searchModel);
 
-        Task<TEmployeeMovement> GetTEmployeeMovementsById(int id);
+        Task<TEmployeeMovement> GetTEmployeeMovementsById(string id);
        
     }
 }

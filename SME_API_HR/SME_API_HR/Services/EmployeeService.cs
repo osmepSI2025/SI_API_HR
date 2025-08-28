@@ -293,13 +293,13 @@ namespace SME_API_HR.Services
 
                             try
                             {          ////insert t_employeeprofile   address
-                                ///
+                                /////
                                 var EmpProfileX = await _profileService.GetProfileById(item.EmployeeId.ToString());
 
-                                //Insert T_EmpMovement
+                                ////Insert T_EmpMovement
                                 await _movementService.UpsertEmployeeMovement(item.EmployeeId.ToString());
 
-                                //insert M_EmpByid
+                                ////insert M_EmpByid
                                 await _memployeeByIdService.GetEmployeeById(item.EmployeeId.ToString());
                             }
                             catch (Exception ex)

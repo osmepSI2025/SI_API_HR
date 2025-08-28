@@ -9,7 +9,7 @@ public class ApiListEmployeeMovementResponse
 public class EmployeeMovementResult
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public string Id { get; set; }
 
     [JsonPropertyName("employeeId")]
     public string? EmployeeId { get; set; }
@@ -81,7 +81,7 @@ public class EmployeeMovementResult
     public string? ProbationResult { get; set; }
 
     [JsonPropertyName("probationExtend")]
-    public string? ProbationExtend { get; set; }
+    public bool? ProbationExtend { get; set; }
 
     [JsonPropertyName("employmentDate")]
     public DateTime? EmploymentDate { get; set; }
