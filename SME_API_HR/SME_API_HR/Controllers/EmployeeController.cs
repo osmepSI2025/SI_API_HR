@@ -131,7 +131,7 @@ namespace SME_API_HR.Controllers
         public async Task<ActionResult> Batch_Econtracts()
         {
             //test datetime
-            string dateString = "2025-08-01";
+            string dateString = DateTime.Now.ToString("yyyy-MM-dd");
             var msearch = new searchEmployeeContractModels
             {
               //  employmentDate = employmentDate.ToDateTime(TimeOnly.MinValue), // Convert DateOnly to DateTime
@@ -163,8 +163,8 @@ namespace SME_API_HR.Controllers
             var msearch = new searchEmployeeContractModels
             {
                 //  employmentDate = employmentDate.ToDateTime(TimeOnly.MinValue), // Convert DateOnly to DateTime
+                //   employmentDate = employmentDate,
                 employmentDate = employmentDate,
-               
                 //employmentDate = DateTime.Now.Date,
                 page = page,
                 perPage = perPage

@@ -55,8 +55,15 @@ namespace SME_API_HR.Repository
 
         public async Task AddAsync(MEmployee employee)
         {
-            await _context.MEmployees.AddAsync(employee);
-            await _context.SaveChangesAsync();
+            try {
+                await _context.MEmployees.AddAsync(employee);
+                await _context.SaveChangesAsync();
+            }
+            catch(Exception ex)
+            {
+               
+            }
+        
         }
 
         public async Task UpdateAsync(MEmployee employee)

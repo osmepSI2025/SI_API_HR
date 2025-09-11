@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Quartz;
+using Serilog;
+using Serilog.Events;
 using SME_API_HR.Entities;
 using SME_API_HR.Repository;
 using SME_API_HR.Services;
@@ -13,6 +16,14 @@ namespace SME_API_HR
         {
             var builder = WebApplication.CreateBuilder(args);
             // ✅ Register Database Context
+            Log.Logger = new LoggerConfiguration()
+           .WriteTo.File(
+               path: "Logs\\log-.txt",
+               outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:1j}{NewLine}{Exception}",
+               rollingInterval: RollingInterval.Day,
+               restrictedToMinimumLevel: LogEventLevel.Information
+           ).CreateLogger();
+
             builder.Services.AddDbContext<HRAPIDBContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
             // Add services to the container.
@@ -52,16 +63,30 @@ namespace SME_API_HR
             builder.Services.AddScoped<IMEmployeeByIdService, MEmployeeByIdService>();
             builder.Services.AddScoped<ITEmployeeContractRepository, TEmployeeContractRepository>();
             builder.Services.AddScoped<ITEmployeeContractService, TEmployeeContractService>();
-
+            builder.Services.AddScoped<JobService>();
 
             builder.Services.AddScoped<ICallAPIService, CallAPIService>();
             builder.Services.AddHttpClient<CallAPIService>();
             builder.Services.AddSingleton<CallAPIService>();
 
+            // Add Quartz.NET services
+            builder.Services.AddQuartz(q =>
+            {
+                //  q.UseMicrosoftDependencyInjectionScopedJobFactory();
+                q.AddJob<ScheduledJobPuller>(j => j.WithIdentity("ScheduledJobPuller").StoreDurably());
+            });
+
+            builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+
+            // Register your IHostedService to manage jobs
             builder.Services.AddHostedService<JobSchedulerService>();
             var app = builder.Build();
 
+     
+
             // Configure the HTTP request pipeline.
+
+
             if (app.Environment.IsDevelopment()
                 || app.Environment.IsProduction()
                 )

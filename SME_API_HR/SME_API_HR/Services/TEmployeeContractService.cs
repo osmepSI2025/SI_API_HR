@@ -109,6 +109,15 @@ namespace SME_API_HR.Services
                                     PositionId = item.PositionId,
                                     Salary = item.Salary,
                                     IdCard = item.IdCard,
+                                     JobLevelId = item.JobLevelId,
+                                      JobLevelNameEn= item.JobLevelNameEn,
+                                       JobLevelNameTh = item.JobLevelNameTh,
+                                       PassportNo = item.PassportNo,
+                                       PositionNameEn = item.PositionNameEn,
+                                        PositionNameTh = item.PositionNameTh,
+
+                                    CreateDate = DateTime.Now
+
 
                                 };
 
@@ -119,6 +128,18 @@ namespace SME_API_HR.Services
                                 // update data by emp
                                 EmpX.EmployeeId = item.EmployeeId;
                                 EmpX.PositionId = item.PositionId;
+                                EmpX.PositionNameTh = item.PositionNameTh;
+                                EmpX.PositionNameEn = item.PositionNameEn;
+                                EmpX.JobLevelId = item.JobLevelId;
+                                EmpX.JobLevelNameTh = item.JobLevelNameTh;
+                                EmpX.JobLevelNameEn = item.JobLevelNameEn;
+                                EmpX.Salary = item.Salary;
+                                EmpX.TerminationDate = item.TerminationDate;
+                                EmpX.EmployeeStatus = item.EmployeeStatus;
+                                 
+                            //    EmpX.UpdateDate = DateTime.Now;
+
+
 
                                 // update data
                                 await UpdateContract(EmpX);
@@ -189,7 +210,14 @@ namespace SME_API_HR.Services
                         PositionId = item.PositionId,
                         Salary = item.Salary,
                         IdCard = item.IdCard,
-                        PassportNo = item.PassportNo
+                        PassportNo = item.PassportNo,
+                        PositionNameEn = item.PositionNameEn,
+                        PositionNameTh = item.PositionNameTh,
+                        JobLevelId = item.JobLevelId,
+                        JobLevelNameEn = item.JobLevelNameEn,
+                        JobLevelNameTh = item.JobLevelNameTh,
+
+
                     }).ToList() ?? new List<EmployeeContractResult>()
                 };
 

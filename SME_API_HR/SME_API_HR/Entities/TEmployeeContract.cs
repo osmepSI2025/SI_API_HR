@@ -45,9 +45,21 @@ public partial class TEmployeeContract
 
     public string? PositionId { get; set; }
 
+    public string? PositionNameTh { get; set; }
+
+    public string? PositionNameEn { get; set; }
+
+    public string? JobLevelId { get; set; }
+
+    public string? JobLevelNameTh { get; set; }
+
+    public string? JobLevelNameEn { get; set; }
+
     public string? Salary { get; set; }
 
     public string? IdCard { get; set; }
 
     public string? PassportNo { get; set; }
+
+    public DateTime? CreateDate { get; set; }
 }

@@ -109,12 +109,28 @@ public partial class HRAPIDBContext : DbContext
             entity.Property(e => e.EmploymentDate).HasColumnType("datetime");
             entity.Property(e => e.FirstNameEn).HasMaxLength(100);
             entity.Property(e => e.FirstNameTh).HasMaxLength(100);
+            entity.Property(e => e.JobLevelId)
+                .HasMaxLength(200)
+                .HasColumnName("jobLevelId");
+            entity.Property(e => e.JobLevelNameEn)
+                .HasMaxLength(200)
+                .HasColumnName("jobLevelNameEN");
+            entity.Property(e => e.JobLevelNameTh)
+                .HasMaxLength(200)
+                .HasColumnName("jobLevelNameTH");
             entity.Property(e => e.LastNameEn).HasMaxLength(100);
             entity.Property(e => e.LastNameTh).HasMaxLength(100);
             entity.Property(e => e.Mobile).HasMaxLength(50);
             entity.Property(e => e.NameEn).HasMaxLength(200);
             entity.Property(e => e.NameTh).HasMaxLength(200);
             entity.Property(e => e.PositionId).HasMaxLength(50);
+            entity.Property(e => e.PositionNameEn)
+                .HasMaxLength(200)
+                .HasColumnName("positionNameEN");
+            entity.Property(e => e.PositionNameTh)
+                .HasMaxLength(200)
+                .HasColumnName("positionNameTH");
+            entity.Property(e => e.Salary).HasMaxLength(500);
             entity.Property(e => e.SupervisorId).HasMaxLength(50);
             entity.Property(e => e.TerminationDate).HasColumnType("datetime");
         });
@@ -222,6 +238,9 @@ public partial class HRAPIDBContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.BusinessUnitId).HasMaxLength(50);
             entity.Property(e => e.CompanyId).HasMaxLength(50);
+            entity.Property(e => e.CreateDate)
+                .HasColumnType("datetime")
+                .HasColumnName("createDate");
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.EmployeeCode).HasMaxLength(50);
             entity.Property(e => e.EmployeeId).HasMaxLength(50);
@@ -231,6 +250,15 @@ public partial class HRAPIDBContext : DbContext
             entity.Property(e => e.FirstNameEn).HasMaxLength(100);
             entity.Property(e => e.FirstNameTh).HasMaxLength(100);
             entity.Property(e => e.IdCard).HasMaxLength(200);
+            entity.Property(e => e.JobLevelId)
+                .HasMaxLength(200)
+                .HasColumnName("jobLevelId");
+            entity.Property(e => e.JobLevelNameEn)
+                .HasMaxLength(200)
+                .HasColumnName("jobLevelNameEN");
+            entity.Property(e => e.JobLevelNameTh)
+                .HasMaxLength(200)
+                .HasColumnName("jobLevelNameTH");
             entity.Property(e => e.LastNameEn).HasMaxLength(100);
             entity.Property(e => e.LastNameTh).HasMaxLength(100);
             entity.Property(e => e.Mobile).HasMaxLength(20);
@@ -238,6 +266,12 @@ public partial class HRAPIDBContext : DbContext
             entity.Property(e => e.NameTh).HasMaxLength(100);
             entity.Property(e => e.PassportNo).HasMaxLength(100);
             entity.Property(e => e.PositionId).HasMaxLength(50);
+            entity.Property(e => e.PositionNameEn)
+                .HasMaxLength(200)
+                .HasColumnName("positionNameEN");
+            entity.Property(e => e.PositionNameTh)
+                .HasMaxLength(200)
+                .HasColumnName("positionNameTH");
             entity.Property(e => e.Salary).HasMaxLength(200);
             entity.Property(e => e.SupervisorId).HasMaxLength(50);
             entity.Property(e => e.TerminationDate).HasColumnType("datetime");

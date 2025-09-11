@@ -57,7 +57,12 @@ namespace SME_API_HR.Services
                         SupervisorId = emp.SupervisorId,
                         CompanyId = emp.CompanyId,
                         BusinessUnitId = emp.BusinessUnitId,
-                        PositionId = emp.PositionId
+                        PositionId = emp.PositionId,
+                        PositionNameEn = emp.PositionNameEn,
+                        PositionNameTh = emp.PositionNameTh,
+                        JobLevelId = emp.JobLevelId,
+                        JobLevelNameEn = emp.JobLevelNameEn,
+                        JobLevelNameTh = emp.JobLevelNameTh,
                     }).ToList();
                 }
                 else
@@ -276,17 +281,45 @@ namespace SME_API_HR.Services
                                     PositionId = item.PositionId,
                                     SupervisorId = item.SupervisorId,
                                     EmploymentDate = item.EmploymentDate,
-                                    TerminationDate = item.TerminationDate
+                                    TerminationDate = item.TerminationDate,
+                                     Createdate = DateTime.Now,
+                                     PositionNameEn = item.PositionNameEn,
+                                        PositionNameTh = item.PositionNameTh,
+                                        JobLevelId = item.JobLevelId,
+                                        JobLevelNameEn = item.JobLevelNameEn,
+                                        JobLevelNameTh = item.JobLevelNameTh,
+
+
                                 };
 
                                 await AddEmployee(mEmployee);
                             }
-                            else if (string.IsNullOrEmpty(EmpX.PositionId))
+                            else
                             {
                                 // update data by emp
                                 EmpX.EmployeeId = item.EmployeeId;
                                 EmpX.PositionId = item.PositionId;
-
+                                EmpX.PositionNameEn = item.PositionNameEn;
+                                EmpX.PositionNameTh = item.PositionNameTh;
+                                EmpX.JobLevelId = item.JobLevelId;
+                                EmpX.JobLevelNameEn = item.JobLevelNameEn;
+                                EmpX.JobLevelNameTh = item.JobLevelNameTh;
+                                EmpX.BusinessUnitId = item.BusinessUnitId;
+                                EmpX.CompanyId = item.CompanyId;
+                                EmpX.Email = item.Email;
+                                EmpX.EmployeeCode = item.EmployeeCode;
+                                EmpX.EmployeeStatus = item.EmployeeStatus;
+                                EmpX.EmployeeType = item.EmployeeType;
+                                EmpX.FirstNameEn = item.FirstNameEn;
+                                EmpX.FirstNameTh = item.FirstNameTh;
+                                EmpX.LastNameEn = item.LastNameEn;
+                                EmpX.LastNameTh = item.LastNameTh;
+                                EmpX.Mobile = item.Mobile;
+                                EmpX.NameEn = item.NameEn;
+                                EmpX.NameTh = item.NameTh;
+                                EmpX.SupervisorId = item.SupervisorId;
+                                EmpX.EmploymentDate = item.EmploymentDate;
+                                EmpX.TerminationDate = item.TerminationDate;
                                 // update data
                                 await UpdateEmployee(EmpX);
                             }
@@ -307,17 +340,18 @@ namespace SME_API_HR.Services
                                 Console.WriteLine($"Error: {ex.Message}");
                             }
 
-                            var newpagemodels = new searchEmployeeModels
-                            {
-                               
-                                page = Models.page + 1,
-                                perPage = Models.perPage,
+                       
+                        }
+                        var newpagemodels = new searchEmployeeModels
+                        {
 
-                            };
-                            if (resultApi.Results.Count != 0)
-                            {
-                                await GetEmployeeByBatchEndOfDay(newpagemodels);
-                            }
+                            page = Models.page + 1,
+                            perPage = Models.perPage,
+
+                        };
+                        if (resultApi.Results.Count != 0)
+                        {
+                            await GetEmployeeByBatchEndOfDay(newpagemodels);
                         }
                     }
 

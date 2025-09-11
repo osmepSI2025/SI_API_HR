@@ -12,6 +12,7 @@
   <ItemGroup>
     <Compile Remove="Repository\EmployeeService.cs" />
     <Compile Remove="Repository\IEmployeeService.cs" />
+    <Compile Remove="Services\JobSchedulerService.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +28,16 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.0" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.20.0" />
-    <PackageReference Include="Quartz" Version="3.14.0" />
+    <PackageReference Include="Quartz" Version="3.9.0" />
+    <PackageReference Include="Quartz.AspNetCore" Version="3.9.0" />
+    <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.9.0" />
+    <PackageReference Include="Quartz.Extensions.Hosting" Version="3.9.0" />
+    <PackageReference Include="Serilog" Version="4.3.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="9.0.2" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
   </ItemGroup>
 
 </Project>
