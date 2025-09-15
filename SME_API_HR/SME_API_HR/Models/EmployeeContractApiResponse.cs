@@ -82,6 +82,17 @@ namespace SME_API_HR.Models
 
         [JsonPropertyName("passportNo")]
         public string? PassportNo { get; set; }
+      
+
+        public string? PositionNameTh { get; set; }
+
+        public string? PositionNameEn { get; set; }
+
+        public string? JobLevelId { get; set; }
+
+        public string? JobLevelNameTh { get; set; }
+
+        public string? JobLevelNameEn { get; set; }
     }
     public class ApiListEmployeeContractResponse
     {

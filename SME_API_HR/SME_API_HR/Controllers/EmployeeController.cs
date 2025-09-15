@@ -83,11 +83,7 @@ namespace SME_API_HR.Controllers
 
         }
       
-        //[HttpGet("profiles")]
-        //public async Task<ActionResult<IEnumerable<TEmployeeProfile>>> GetAllProfiles()
-        //{
-        //    return Ok(await _profileService.GetAllProfiles());
-        //}
+      
 
         [HttpGet("{empId}/profile")]
         public async Task<ActionResult<ApiEmployeeProfileResponse>> GetProfileById(string empId)
@@ -104,11 +100,7 @@ namespace SME_API_HR.Controllers
 
 
         #region Emp movement
-        //[HttpGet("movements")]
-        //public async Task<ActionResult<IEnumerable<TEmployeeMovement>>> GetAllMovements()
-        //{
-        //    return Ok(await _movementService.GetAllMovements());
-        //}
+        
 
         [HttpGet("{employeeId}/movements")]
         public async Task<ActionResult<ApiListEmployeeMovementResponse>> GetMovementById(string employeeId)

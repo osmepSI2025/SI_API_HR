@@ -136,32 +136,16 @@ namespace SME_API_HR.Services
                                 EmpX.Salary = item.Salary;
                                 EmpX.TerminationDate = item.TerminationDate;
                                 EmpX.EmployeeStatus = item.EmployeeStatus;
-                                 
-                            //    EmpX.UpdateDate = DateTime.Now;
-
-
+                 
 
                                 // update data
                                 await UpdateContract(EmpX);
                             }
 
 
-                            //var employeeProfile = await _employeeRepository.GetEmployeeProfileById(item.EmployeeId.ToString());
-
-
                         }
 
-                        //var newpagemodels = new searchEmployeeContractModels
-                        //{
-                        //    employmentDate = models.employmentDate,
-                        //    page = models.page + 1,
-                        //    perPage = models.perPage,
-
-                        //};
-                        //if (apiResponse.Results.Count != 0)
-                        //{
-                        //    await BatchEndOfDay(newpagemodels);
-                        //}
+                       
 
                     }
 

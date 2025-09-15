@@ -18,10 +18,7 @@ namespace SME_API_HR.Services
             _serviceApi = serviceApi;
         }
 
-        //public async Task<IEnumerable<ApiListJobLevelResponse>> GetAllJobLevels()
-        //{
-        //    return await _jobLevelRepository.GetAllAsync();
-        //}
+     
         public async Task<ApiListJobLevelResponse> GetAllJobLevels()
         {
             try {

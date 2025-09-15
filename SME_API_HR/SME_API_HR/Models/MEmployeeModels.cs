@@ -97,6 +97,15 @@ namespace SME_API_HR.Models
 
         [JsonPropertyName("positionId")]
         public string? PositionId { get; set; }
+        public string? PositionNameTh { get; set; }
+
+        public string? PositionNameEn { get; set; }
+
+        public string? JobLevelId { get; set; }
+
+        public string? JobLevelNameTh { get; set; }
+
+        public string? JobLevelNameEn { get; set; }
     }
 
 
